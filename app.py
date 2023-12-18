@@ -1,11 +1,14 @@
 from flask import Flask,request
+import requests
 from twilio.twiml.messaging_response import MessagingResponse
+import requests
 
 app = Flask(__name__)
 @app.route("/sms", methods=['POST'])
 def reply():
     incoming_msg = request.form.get('Body').lower()
     response = MessagingResponse()
+   
     print(incoming_msg)
 
     message=response.message()
